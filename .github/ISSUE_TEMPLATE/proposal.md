@@ -1,6 +1,6 @@
 ---
 name: '✋ Proposal'
-about: Environment Issue
+about: Proposal Issue
 title: '✋ '
 labels: ''
 assignees: ''
