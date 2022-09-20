@@ -1,5 +1,5 @@
 ---
-name: '💪　Refactoring'
+name: '💪 Refactoring'
 about: Refactoring (Improvement) Issue
 title: '💪 '
 labels: ''
