@@ -1,5 +1,5 @@
 ---
-name: '🚀　Publish'
+name: '🚀 Publish'
 about: Publish Issue
 title: '🚀 Publish `vvvvvv`'
 labels: ''
