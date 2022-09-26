@@ -1,6 +1,6 @@
 ---
-name: '📄 Documents'
-about: Documents Issue
+name: '📄 Specification'
+about: Specification Issue
 title: '📄 '
 labels: ''
 assignees: ''
