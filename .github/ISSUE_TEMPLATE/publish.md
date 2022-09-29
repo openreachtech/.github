@@ -40,7 +40,7 @@ Go to → https://github.com/settings/tokens
 1. Check Commit Hash to Publish
 
     - [ ] git log --graph --oneline --decorate --all
-    - [ ] taget commit as: `xxxxxxxx`
+    - [ ] target commit as: `xxxxxxxx`
 
 2. Confirm Work to Publish
 
