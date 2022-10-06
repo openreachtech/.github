@@ -17,6 +17,7 @@ assignees: ''
 - [ ] ⚙️ Update package version to `vvvvvv`
 - [ ] Publish.
 - [ ] Merge to `main` as `vvvvvv`.
+- [ ] Push version tag on main.
 
 ## npm login before publishing
 
