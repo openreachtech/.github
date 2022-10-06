@@ -46,9 +46,8 @@ Go to → https://github.com/settings/tokens
 2. Confirm Work to Publish
 
     - [ ] To export new features correctly.
-    - [ ] Package version
-        - [ ] package.json
-        - [ ] package-lock.json
+    - [ ] Confirm version in `package.json`
+    - [ ] Confirm version in `package-lock.json`
 
 3. Publish
 
