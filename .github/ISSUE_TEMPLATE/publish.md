@@ -17,6 +17,7 @@ assignees: ''
 - [ ] ⚙️ Update package version to `vvvvvv`
 - [ ] Publish.
 - [ ] Merge to `main` as `vvvvvv`.
+- [ ] Push version tag on main.
 
 ## npm login before publishing
 
@@ -45,9 +46,8 @@ Go to → https://github.com/settings/tokens
 2. Confirm Work to Publish
 
     - [ ] To export new features correctly.
-    - [ ] Package version
-        - [ ] package.json
-        - [ ] package-lock.json
+    - [ ] Confirm version in `package.json`
+    - [ ] Confirm version in `package-lock.json`
 
 3. Publish
 
