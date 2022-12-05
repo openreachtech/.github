@@ -1,6 +1,6 @@
 ---
-name: '💪 Refactoring'
-about: Refactoring (Improvement) Issue
+name: '💪 Refine'
+about: Refine (Refactoring) Issue
 title: '💪 '
 labels: ''
 assignees: ''
@@ -9,8 +9,8 @@ assignees: ''
 
 ## Overview
 
-* 
+*
 
 ## Tasks
 
-- [ ] 
+- [ ]
