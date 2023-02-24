@@ -1,6 +1,6 @@
 ## Why
 
-* See #000
+* Close #000
 
 ## How
 
