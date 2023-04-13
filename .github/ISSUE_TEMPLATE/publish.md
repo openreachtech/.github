@@ -16,7 +16,7 @@ assignees: ''
 
 - [ ] ⚙️ Update package version to `vvvvvv`
 - [ ] Publish.
-- [ ] ⚙️ Merge to `main` as `vvvvvv`.
+- [ ] ⚙️ Merge to `main` as `vvvvvv`
 - [ ] Push version tag `vvvvvv` on main.
 
 ## npm login to GitHub Packages before publishing
