@@ -49,6 +49,12 @@ Go to → https://github.com/settings/tokens
 
 ### 3. Publish
 
+- [ ] Confirm login user
+
+  ```
+  npm whoami --registry https://npm.pkg.github.com
+  ```
+
 - [ ] Confirm publishing commit with `--dry-run`
 
   ```
