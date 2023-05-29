@@ -17,22 +17,22 @@ assignees: ''
 - [ ] ⚙️ Update package version to `vvvvvv`
 - [ ] Publish.
 - [ ] ⚙️ Merge to `main` as `vvvvvv`
-- [ ] Push version tag `vvvvvv` on main.
+- [ ] Push version tag `vvvvvv` on main
 
 ## npm login to GitHub Packages before publishing
 
-- [ ] get login password from your GitHub settings
-Go to → https://github.com/settings/tokens
-- [ ] copy your `personal access token` created
-- [ ] run in terminal
-    ```
-    % npm login --registry=https://npm.pkg.github.com/
+* Procedure login as follows:
+  1. get login password from your GitHub settings<br>Go to → https://github.com/settings/tokens
+  2. copy your `personal access token` created
+  3. run in terminal
+      ```
+      % npm login --registry=https://npm.pkg.github.com/
 
-    Username: your-github-account-in-lower-case-only
-    Password:
-    Email: your.mail.account@gmail.com
-    Logged in as [your-name] on https://npm.pkg.github.com/.
-    ```
+      Username: your-github-account-in-lower-case-only
+      Password:
+      Email: your.mail.account@gmail.com
+      Logged in as [your-name] on https://npm.pkg.github.com/.
+      ```
 
 ## Procedure to Publish
 
@@ -48,6 +48,12 @@ Go to → https://github.com/settings/tokens
 - [ ] Confirm version in `package-lock.json`
 
 ### 3. Publish
+
+- [ ] Confirm login user
+
+  ```
+  npm whoami --registry https://npm.pkg.github.com
+  ```
 
 - [ ] Confirm publishing commit with `--dry-run`
 
