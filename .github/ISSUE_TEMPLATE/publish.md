@@ -79,4 +79,8 @@ assignees: ''
   ```
 
 - [ ] Check log of `--dry-run` by other member before actual publishing
+  - target commit as: `xxxxxxxx`
+  - node version: `nnnn`
+  - npm version: `nnn`
+
 - [ ] `npm publish`
