@@ -15,7 +15,7 @@ assignees: ''
 ## Tasks
 
 - [ ] ⚙️ Update package version to `vvvvvv`
-- [ ] Publish.
+- [ ] Publish by procedure
 - [ ] ⚙️ Merge to `main` as `vvvvvv`
 - [ ] Push version tag `vvvvvv` on main
 
@@ -78,5 +78,18 @@ assignees: ''
   + @openreachtech/eslint-config@0.0.0
   ```
 
-- [ ] Check log of `--dry-run` by other member before actual publishing.
-- [ ] `npm publish`
+- [ ] Check log of `--dry-run` by other member before actual publishing
+  - target commit as: `xxxxxxxx`
+  - node version: `nnnn`
+  - npm version: `nnn`
+
+- [ ] Publish
+
+  ```console
+  git status
+  git diff xxxxxxxx
+  ```
+
+  ```console
+  npm publish
+  ```
