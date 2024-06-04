@@ -15,7 +15,7 @@ assignees: ''
 ## Tasks
 
 - [ ] ⚙️ Update package version to `vvvvvv`
-- [ ] Publish.
+- [ ] Publish by procedure
 - [ ] ⚙️ Merge to `main` as `vvvvvv`
 - [ ] Push version tag `vvvvvv` on main
 
