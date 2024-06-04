@@ -78,5 +78,5 @@ assignees: ''
   + @openreachtech/eslint-config@0.0.0
   ```
 
-- [ ] Check log of `--dry-run` by other member before actual publishing.
+- [ ] Check log of `--dry-run` by other member before actual publishing
 - [ ] `npm publish`
