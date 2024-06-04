@@ -83,4 +83,13 @@ assignees: ''
   - node version: `nnnn`
   - npm version: `nnn`
 
-- [ ] `npm publish`
+- [ ] Publish
+
+  ```console
+  git status
+  git diff xxxxxxxx
+  ```
+
+  ```console
+  npm publish
+  ```
