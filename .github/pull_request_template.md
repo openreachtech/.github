@@ -1,7 +1,7 @@
-## Why
+# Why
 
 * Close #000
 
-## How
+# How
 
 * 
