@@ -6,20 +6,20 @@ labels: ''
 assignees: ''
 
 ---
-## Overview
+# Overview
 
 * Publish version as `vvvvvv`.
 
 * See [[Renchan] Publish to GitHub Packages - Kibela](https://openreachtech.kibe.la/notes/5722)
 
-## Tasks
+# Tasks
 
 - [ ] ⚙️ Update package version to `vvvvvv`
 - [ ] Publish by procedure
 - [ ] ⚙️ Merge to `main` as `vvvvvv`
 - [ ] Push version tag `vvvvvv` on main
 
-## npm login to GitHub Packages before publishing
+# npm login to GitHub Packages before publishing
 
 * Procedure login as follows:
   1. get login password from your GitHub settings<br>Go to → https://github.com/settings/tokens
@@ -34,20 +34,20 @@ assignees: ''
       Logged in as [your-name] on https://npm.pkg.github.com/.
       ```
 
-## Procedure to Publish
+# Procedure to Publish
 
-### 1. Check Commit Hash to Publish
+## 1. Check Commit Hash to Publish
 
 - [ ] git log --graph --oneline --decorate --all
 - [ ] target commit as: `xxxxxxxx`
 
-### 2. Confirm Work to Publish
+## 2. Confirm Work to Publish
 
 - [ ] To export new features correctly.
 - [ ] Confirm version in `package.json`
 - [ ] Confirm version in `package-lock.json`
 
-### 3. Publish
+## 3. Publish
 
 - [ ] Confirm login user
 
