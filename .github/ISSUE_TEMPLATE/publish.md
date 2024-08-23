@@ -19,6 +19,7 @@ assignees: ''
 - [ ] Publish by procedure
 - [ ] ⚙️ Merge to `main` as `vvvvvv`
 - [ ] Push version tag `vvvvvv` on main
+- [ ] Confirm access right of published package
 
 # npm login to GitHub Packages before publishing
 
@@ -93,4 +94,13 @@ assignees: ''
 
   ```console
   npm publish
+  ```
+
+## 4. Confirm Access Right of Published Package
+
+- When public module, check by installing package
+- When ORT private module, check it below in package page
+
+  ```
+  https://github.com/orgs/openreachtech/packages/npm/__package__name__/settings
   ```
