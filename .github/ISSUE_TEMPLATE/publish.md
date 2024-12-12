@@ -6,7 +6,7 @@ labels: ''
 assignees: ''
 
 ---
-## Overview
+# Overview
 
 Publish version as `vvvvvv`.
 
@@ -20,14 +20,14 @@ Publish version as `vvvvvv`.
 <br>
 <br>
 
-## Prepare by Publisher
+# Prepare by Publisher
 
-### (1) Confirm version of environment
+## (1) Confirm version of environment
 
 - [ ] Node.js version `nnnnnn`
 - [ ] npm version `nnnn`
 
-### (2) Confirm Exporting Contents
+## (2) Confirm Exporting Contents
 
 - [ ] To export new features correctly
 - [ ] Confirm version in `package.json`
@@ -36,15 +36,15 @@ Publish version as `vvvvvv`.
 <br>
 <br>
 
-## Confirm to Publish
+# Confirm to Publish
 
-### (1) Pick up Target Commit Hash to Publish
+## (1) Pick up Target Commit Hash to Publish
 
 - [ ] git fetch origin --prune
 - [ ] git log --graph --oneline --decorate --all
 - [ ] target commit as: `xxxxxxxx`
 
-### (2) Publish with `--dry-run`
+## (2) Publish with `--dry-run`
 
 - [ ] Confirm on target commit hash
 
@@ -82,7 +82,7 @@ Publish version as `vvvvvv`.
   + @openreachtech/package-name@0.0.0
   ```
 
-### (3) Confirm Logs with `--dry-run` by Other Member before Actual Publishing
+## (3) Confirm Logs with `--dry-run` by Other Member before Actual Publishing
 
 - [ ] Confirm Node version `nnnnnn`
 
@@ -110,6 +110,8 @@ Publish version as `vvvvvv`.
 
 <br>
 <br>
+
+# Publish
 
 ## (4) Publish Actually
 
