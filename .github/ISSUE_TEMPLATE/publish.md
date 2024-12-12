@@ -158,6 +158,7 @@ Publish version as `vvvvvv`.
 
 - When public module, check by installing package
 - When ORT private module, check it below in package page
+- Confirm check of `Inherit access from source repository (recommended)`
 
   ```
   https://github.com/orgs/openreachtech/packages/npm/__package__name__/settings
