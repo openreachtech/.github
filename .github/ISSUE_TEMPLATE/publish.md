@@ -6,50 +6,111 @@ labels: ''
 assignees: ''
 
 ---
+## Overview
 
-# Details
+Publish version as `vvvvvv`.
 
-* Publish version as `vvvvvv`.
-
-* See [[Renchan] Publish to GitHub Packages - Kibela](https://openreachtech.kibe.la/notes/5722)
-
-# Tasks
+## Tasks
 
 - [ ] ⚙️ Update package version to `vvvvvv`
 - [ ] Publish by procedure
 - [ ] ⚙️ Merge to `main` as `vvvvvv`
 - [ ] Push version tag `vvvvvv` on main
-- [ ] Confirm access right of published package
 
-# npm login to GitHub Packages before publishing
+<br>
+<br>
 
-* Procedure login as follows:
-  1. get login password from your GitHub settings<br>Go to → https://github.com/settings/tokens
-  2. copy your `personal access token` created
-  3. run in terminal
-      ```
-      % npm login --registry=https://npm.pkg.github.com/
+## Prepare by Publisher
 
-      Username: your-github-account-in-lower-case-only
-      Password:
-      Email: your.mail.account@gmail.com
-      Logged in as [your-name] on https://npm.pkg.github.com/.
-      ```
+### (1) Confirm version of environment
 
-# Procedure to Publish
+- [ ] Node.js version `nnnnnn`
+- [ ] npm version `nnnn`
 
-## 1. Check Commit Hash to Publish
+### (2) Confirm Exporting Contents
+
+- [ ] To export new features correctly
+- [ ] Confirm version in `package.json`
+- [ ] Confirm version in `package-lock.json`
+
+<br>
+<br>
+
+## Confirm to Publish
+
+### (1) Pick up Target Commit Hash to Publish
 
 - [ ] git log --graph --oneline --decorate --all
 - [ ] target commit as: `xxxxxxxx`
 
-## 2. Confirm Work to Publish
+### (2) Publish with `--dry-run`
 
-- [ ] To export new features correctly.
-- [ ] Confirm version in `package.json`
-- [ ] Confirm version in `package-lock.json`
+- [ ] Confirm on target commit hash
 
-## 3. Publish
+  ```
+  git diff xxxxxxxx
+  ```
+
+- [ ] Confirm no differences
+
+  ```sh
+  git status
+  ```
+
+- [ ] Report publishing logs with `--dry-run` in the comments of this issue
+
+  ```
+  npm publish --dry-run
+  ```
+
+  Sample logs as follows:
+
+  ```
+  % npm publish --dry-run
+  npm notice
+  npm notice 📦  your-package-name
+  npm notice === Tarball Contents ===
+  npm notice 3.5kB index.js
+  npm notice 1.1kB LICENSE
+  npm notice 428B  README.md
+  npm notice 879B  package.json
+  npm notice === Tarball Details ===
+  ...
+  ...
+  npm notice
+  + @openreachtech/package-name@0.0.0
+  ```
+
+### (3) Confirm Logs with `--dry-run` by Other Member before Actual Publishing
+
+- [ ] Confirm Node version `nnnnnn`
+
+  ```sh
+  node -v
+  ```
+
+- [ ] Confirm npm version `nnnn`
+
+  ```sh
+  npm -v
+  ```
+
+- [ ] Move to target commit hash
+
+  ```sh
+  git checkout xxxxxxxx
+  ```
+
+- [ ] Report publishing logs with `--dry-run` in the comments of this issue
+
+  ```
+  npm publish --dry-run
+  ```
+
+<br>
+<br>
+
+## (4) Publish Actually
 
 - [ ] Confirm login user
 
@@ -57,46 +118,42 @@ assignees: ''
   npm whoami --registry https://npm.pkg.github.com
   ```
 
-- [ ] Confirm publishing commit with `--dry-run`
+- [ ] npm login to GitHub Packages before publishing if requires
 
-  ```
-  npm publish --dry-run
-  ```
+  1. Get login password from your GitHub settings<br>Go to → https://github.com/settings/tokens
+  2. Copy your `personal access token` created
+  3. Login
 
-  ```
-  % npm publish --dry-run
-  npm notice
-  npm notice 📦  your-package-name
-  npm notice === Tarball Contents ===
-  npm notice 3.5kB .eslintrc.yml
-  npm notice 1.1kB LICENSE
-  npm notice 428B  README.md
-  npm notice 879B  package.json
-  npm notice === Tarball Details ===
-  ...
-  ...
-  ...
-  npm notice
-  + @openreachtech/eslint-config@0.0.0
-  ```
+      ```sh
+      npm login --registry=https://npm.pkg.github.com/
+      ```
 
-- [ ] Check log of `--dry-run` by other member before actual publishing
-  - target commit as: `xxxxxxxx`
-  - node version: `nnnn`
-  - npm version: `nnn`
+      ```sh
+      Username: your-github-account-in-lower-case-only
+      Password:
+      Email: your.mail.account@gmail.com
+      Logged in as [your-name] on https://npm.pkg.github.com/.
+      ```
 
-- [ ] Publish
+- [ ] Last Confirm
 
-  ```console
+  ```sh
   git status
+  ```
+
+  ```sh
   git diff xxxxxxxx
   ```
 
-  ```console
+- [ ] Publish
+
+  When publish as OSS, use options of `--access public`
+
+  ```sh
   npm publish
   ```
 
-## 4. Confirm Access Right of Published Package
+## (5) Confirm Access Right of Published Package
 
 - When public module, check by installing package
 - When ORT private module, check it below in package page
