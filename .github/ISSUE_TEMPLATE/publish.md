@@ -40,6 +40,7 @@ Publish version as `vvvvvv`.
 
 ### (1) Pick up Target Commit Hash to Publish
 
+- [ ] git fetch origin --prune
 - [ ] git log --graph --oneline --decorate --all
 - [ ] target commit as: `xxxxxxxx`
 
