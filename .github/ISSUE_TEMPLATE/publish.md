@@ -12,6 +12,7 @@ Publish version as `vvvvvv`.
 
 ## Tasks
 
+- [ ] ⚙️ Update version of dependency packages to latest
 - [ ] ⚙️ Update package version to `vvvvvv`
 - [ ] Publish by procedure
 - [ ] ⚙️ Merge to `main` as `vvvvvv`
