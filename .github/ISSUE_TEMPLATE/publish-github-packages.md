@@ -121,22 +121,22 @@ Publish version as `vvvvvv`.
   npm whoami --registry https://npm.pkg.github.com
   ```
 
-- [ ] npm login to GitHub Packages before publishing if requires
+  * npm login to GitHub Packages before publishing if requires
 
-  1. Get login password from your GitHub settings<br>Go to → https://github.com/settings/tokens
-  2. Copy your `personal access token` created
-  3. Login
+    1. Get login password from your GitHub settings<br>Go to → https://github.com/settings/tokens
+    2. Copy your `personal access token` created
+    3. Login
 
-      ```sh
-      npm login --registry=https://npm.pkg.github.com/
-      ```
+        ```sh
+        npm login --registry=https://npm.pkg.github.com/
+        ```
 
-      ```sh
-      Username: your-github-account-in-lower-case-only
-      Password:
-      Email: your.mail.account@gmail.com
-      Logged in as [your-name] on https://npm.pkg.github.com/.
-      ```
+        ```sh
+        Username: your-github-account-in-lower-case-only
+        Password:
+        Email: your.mail.account@gmail.com
+        Logged in as [your-name] on https://npm.pkg.github.com/.
+        ```
 
 - [ ] Last Confirm
 
