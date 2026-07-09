@@ -1,6 +1,6 @@
 ---
-name: '🚀 Publish'
-about: Publish Issue
+name: '🚀 Publish (GitHub Packages)'
+about: Publish to GitHub Packages Issue
 title: '🚀 Publish `vvvvvv`'
 labels: ''
 assignees: ''
@@ -16,7 +16,6 @@ Publish version as `vvvvvv`.
 - [ ] ⚙️ Update package version to `vvvvvv`
 - [ ] Publish by procedure
 - [ ] ⚙️ Merge to `main` as `vvvvvv`
-- [ ] Push version tag `vvvvvv` on main
 
 <br>
 <br>
@@ -62,13 +61,13 @@ Publish version as `vvvvvv`.
 - [ ] Report publishing logs with `--dry-run` in the comments of this issue
 
   ```
-  npm publish --dry-run
+  npm pack --dry-run
   ```
 
   Sample logs as follows:
 
   ```
-  % npm publish --dry-run
+  % npm pack --dry-run
   npm notice
   npm notice 📦  your-package-name
   npm notice === Tarball Contents ===
@@ -106,7 +105,7 @@ Publish version as `vvvvvv`.
 - [ ] Report publishing logs with `--dry-run` in the comments of this issue
 
   ```
-  npm publish --dry-run
+  npm pack --dry-run
   ```
 
 <br>
@@ -122,22 +121,22 @@ Publish version as `vvvvvv`.
   npm whoami --registry https://npm.pkg.github.com
   ```
 
-- [ ] npm login to GitHub Packages before publishing if requires
+  * npm login to GitHub Packages before publishing if requires
 
-  1. Get login password from your GitHub settings<br>Go to → https://github.com/settings/tokens
-  2. Copy your `personal access token` created
-  3. Login
+    1. Get login password from your GitHub settings<br>Go to → https://github.com/settings/tokens
+    2. Copy your `personal access token` created
+    3. Login
 
-      ```sh
-      npm login --registry=https://npm.pkg.github.com/
-      ```
+        ```sh
+        npm login --registry=https://npm.pkg.github.com/
+        ```
 
-      ```sh
-      Username: your-github-account-in-lower-case-only
-      Password:
-      Email: your.mail.account@gmail.com
-      Logged in as [your-name] on https://npm.pkg.github.com/.
-      ```
+        ```sh
+        Username: your-github-account-in-lower-case-only
+        Password:
+        Email: your.mail.account@gmail.com
+        Logged in as [your-name] on https://npm.pkg.github.com/.
+        ```
 
 - [ ] Last Confirm
 
