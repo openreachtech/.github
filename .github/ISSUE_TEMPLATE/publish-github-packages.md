@@ -1,6 +1,6 @@
 ---
-name: '🚀 Publish'
-about: Publish Issue
+name: '🚀 Publish (GitHub Packages)'
+about: Publish to GitHub Packages Issue
 title: '🚀 Publish `vvvvvv`'
 labels: ''
 assignees: ''
