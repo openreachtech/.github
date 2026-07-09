@@ -16,7 +16,6 @@ Publish version as `vvvvvv`.
 - [ ] ⚙️ Update package version to `vvvvvv`
 - [ ] Publish by procedure
 - [ ] ⚙️ Merge to `main` as `vvvvvv`
-- [ ] Push version tag `vvvvvv` on main
 
 <br>
 <br>
