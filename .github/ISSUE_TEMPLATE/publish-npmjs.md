@@ -118,7 +118,7 @@ Publish version as `vvvvvv`.
 - [ ] Confirm login user
 
   ```
-  npm whoami --registry https://registry.npmjs.com
+  npm whoami
   ```
 
   * npm login to npmjs.com before publishing if requires
