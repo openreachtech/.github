@@ -1,6 +1,6 @@
 ---
-name: '🚀 Publish'
-about: Publish Issue
+name: '🚀 Publish (npmjs.com)'
+about: Publish to npmjs.com Issue
 title: '🚀 Publish `vvvvvv`'
 labels: ''
 assignees: ''
@@ -16,7 +16,6 @@ Publish version as `vvvvvv`.
 - [ ] ⚙️ Update package version to `vvvvvv`
 - [ ] Publish by procedure
 - [ ] ⚙️ Merge to `main` as `vvvvvv`
-- [ ] Push version tag `vvvvvv` on main
 
 <br>
 <br>
@@ -62,13 +61,13 @@ Publish version as `vvvvvv`.
 - [ ] Report publishing logs with `--dry-run` in the comments of this issue
 
   ```
-  npm publish --dry-run
+  npm pack --dry-run
   ```
 
   Sample logs as follows:
 
   ```
-  % npm publish --dry-run
+  % npm pack --dry-run
   npm notice
   npm notice 📦  your-package-name
   npm notice === Tarball Contents ===
@@ -106,7 +105,7 @@ Publish version as `vvvvvv`.
 - [ ] Report publishing logs with `--dry-run` in the comments of this issue
 
   ```
-  npm publish --dry-run
+  npm pack --dry-run
   ```
 
 <br>
@@ -119,25 +118,31 @@ Publish version as `vvvvvv`.
 - [ ] Confirm login user
 
   ```
-  npm whoami --registry https://npm.pkg.github.com
+  npm whoami --registry https://registry.npmjs.com
   ```
 
-- [ ] npm login to GitHub Packages before publishing if requires
+  * npm login to npmjs.com before publishing if requires
 
-  1. Get login password from your GitHub settings<br>Go to → https://github.com/settings/tokens
-  2. Copy your `personal access token` created
-  3. Login
+    1. Get access token from your `npmjs.com` account<br>Go to → https://www.npmjs.com/settings/[username]/tokens
+    2. Set your `personal access token`
+       ```sh
+       npm config set //registry.npmjs.org/:_authToken [your access token]
+       ```
 
-      ```sh
-      npm login --registry=https://npm.pkg.github.com/
-      ```
+    3. Login
 
-      ```sh
-      Username: your-github-account-in-lower-case-only
-      Password:
-      Email: your.mail.account@gmail.com
-      Logged in as [your-name] on https://npm.pkg.github.com/.
-      ```
+       ```sh
+       npm login
+       ```
+
+       ```sh
+       % npm login
+       npm notice Log in on https://registry.npmjs.org/
+       Login at:
+       https://www.npmjs.com/login?next=/login/cli/...
+       Press ENTER to open in the browser...
+       Logged in on https://registry.npmjs.org/.
+       ```
 
 - [ ] Last Confirm
 
@@ -164,5 +169,5 @@ Publish version as `vvvvvv`.
 - Confirm check of `Inherit access from source repository (recommended)`
 
   ```
-  https://github.com/orgs/openreachtech/packages/npm/__package__name__/settings
+  https://www.npmjs.com/settings/openreachtech/packages
   ```
