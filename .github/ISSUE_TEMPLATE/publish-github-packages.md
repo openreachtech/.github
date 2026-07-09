@@ -61,13 +61,13 @@ Publish version as `vvvvvv`.
 - [ ] Report publishing logs with `--dry-run` in the comments of this issue
 
   ```
-  npm publish --dry-run
+  npm pack --dry-run
   ```
 
   Sample logs as follows:
 
   ```
-  % npm publish --dry-run
+  % npm pack --dry-run
   npm notice
   npm notice 📦  your-package-name
   npm notice === Tarball Contents ===
@@ -105,7 +105,7 @@ Publish version as `vvvvvv`.
 - [ ] Report publishing logs with `--dry-run` in the comments of this issue
 
   ```
-  npm publish --dry-run
+  npm pack --dry-run
   ```
 
 <br>
