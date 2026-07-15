@@ -8,112 +8,136 @@ assignees: ''
 ---
 # Overview
 
-Publish version as `vvvvvv`.
+Publish version `vvvvvv`.
 
-## Tasks
+# Confirmations before Publish
 
+Do the final check before publishing. If there is any item below that you cannot check off, make it a sub-task and merge it into the `release/vvvvvv` branch.
+
+- [ ] ⚒️ Export new features correctly in version `vvvvvv`
 - [ ] ⚙️ Update version of dependency packages to latest
 - [ ] ⚙️ Update package version to `vvvvvv`
-- [ ] Publish by procedure
-- [ ] ⚙️ Merge to `main` as `vvvvvv`
 
 <br>
 <br>
 
-# Prepare by Publisher
+# Procedure for Publisher
 
-## (1) Confirm version of environment
+## (1) Confirm package version the same
 
-- [ ] Node.js version `nnnnnn`
-- [ ] npm version `nnnn`
-
-## (2) Confirm Exporting Contents
-
-- [ ] To export new features correctly
-- [ ] Confirm version in `package.json`
-- [ ] Confirm version in `package-lock.json`
-
-<br>
-<br>
-
-# Confirm to Publish
-
-## (1) Pick up Target Commit Hash to Publish
-
-- [ ] git fetch origin --prune
-- [ ] git log --graph --oneline --decorate --all
-- [ ] target commit as: `xxxxxxxx`
-
-## (2) Publish with `--dry-run`
-
-- [ ] Confirm on target commit hash
-
-  ```
-  git diff xxxxxxxx
-  ```
-
-- [ ] Confirm no differences
+- [ ] The same version in `package.json` and `package-lock.json`
 
   ```sh
-  git status
+  grep -m2 '"version"' package.json package-lock.json
   ```
 
-- [ ] Report publishing logs with `--dry-run` in the comments of this issue
+## (2) Get `--dry-run` checksum for Verifying
 
-  ```
+- [ ] Get the `--dry-run` checksum
+
+  ```sh
+  git stash push -u &&
+  git fetch origin --prune &&
+  echo "
+  📦️ Node: $(node -v)
+  📦️ npm : $(npm -v)
+  " &&
+  git checkout "$(git rev-parse origin/release/vvvvvv)" &&
   npm pack --dry-run
   ```
 
-  Sample logs as follows:
-
-  ```
-  % npm pack --dry-run
-  npm notice
-  npm notice 📦  your-package-name
-  npm notice === Tarball Contents ===
-  npm notice 3.5kB index.js
-  npm notice 1.1kB LICENSE
-  npm notice 428B  README.md
-  npm notice 879B  package.json
-  npm notice === Tarball Details ===
-  ...
-  ...
-  npm notice
-  + @openreachtech/package-name@0.0.0
-  ```
-
-## (3) Confirm Logs with `--dry-run` by Other Member before Actual Publishing
-
-- [ ] Confirm Node version `nnnnnn`
+- [ ] Confirm target commit hash
 
   ```sh
-  node -v
+  git log --graph --oneline --decorate --all --exclude=refs/stash
   ```
 
-- [ ] Confirm npm version `nnnn`
+## (3) Report publishing logs with `--dry-run` in the comments of this issue
 
-  ```sh
-  npm -v
-  ```
+- [ ] Paste the result via comment in this issue
 
-- [ ] Move to target commit hash
+Example:
 
-  ```sh
-  git checkout xxxxxxxx
-  ```
+```
+📦️ Node: v22.22.3
+📦️ npm : 11.14.1
 
-- [ ] Report publishing logs with `--dry-run` in the comments of this issue
+HEAD is now at 7b6d182 Merge pull request #105 from openreachtech/release/1.2.0
+npm notice
+npm notice 📦  @openreachtech/todo-fulfill-here@0.0.0
+npm notice Tarball Contents
+npm notice 1.2kB package.json
+npm notice 0B types/index.d.ts
+npm notice Tarball Details
+npm notice name: @openreachtech/todo-fulfill-here
+npm notice version: 0.0.0
+npm notice filename: openreachtech-todo-fulfill-here-0.0.0.tgz
+npm notice package size: 630 B
+npm notice unpacked size: 1.2 kB
+npm notice shasum: f9ab38f3bdfcaff5559832e00000000000000000
+npm notice integrity: sha512-ILxF820000000[...]OI00000000000==
+npm notice total files: 2
+npm notice
+openreachtech-todo-fulfill-here-0.0.0.tgz
+```
 
-  ```
-  npm pack --dry-run
-  ```
+## (4) Request the verify `--dry-run` checksum
+
+- [ ] Request the verify `--dry-run` checksum
+
+<br>
+<br>
+
+# Verify by Confirmor
+
+## (1) Run the Command
+
+```sh
+git stash push -u &&
+git fetch origin --prune &&
+echo "
+📦️ Node: $(node -v)
+📦️ npm : $(npm -v)
+" &&
+git checkout "$(git rev-parse origin/release/vvvvvv)" &&
+npm pack --dry-run
+```
+
+## (2) Report confirming logs with `--dry-run` in the comments of this issue
+
+Paste the Results via comment of this issue
+
+Example:
+
+```
+📦️ Node: v22.22.3
+📦️ npm : 11.14.1
+
+HEAD is now at 7b6d182 Merge pull request #105 from openreachtech/release/1.2.0
+npm notice
+npm notice 📦  @openreachtech/todo-fulfill-here@0.0.0
+npm notice Tarball Contents
+npm notice 1.2kB package.json
+npm notice 0B types/index.d.ts
+npm notice Tarball Details
+npm notice name: @openreachtech/todo-fulfill-here
+npm notice version: 0.0.0
+npm notice filename: openreachtech-todo-fulfill-here-0.0.0.tgz
+npm notice package size: 630 B
+npm notice unpacked size: 1.2 kB
+npm notice shasum: f9ab38f3bdfcaff5559832e00000000000000000
+npm notice integrity: sha512-ILxF820000000[...]OI00000000000==
+npm notice total files: 2
+npm notice
+openreachtech-todo-fulfill-here-0.0.0.tgz
+```
 
 <br>
 <br>
 
 # Publish
 
-## (4) Publish Actually
+- [ ] Confirm the Publisher's and Confirmor's `shasum` / `integrity` match
 
 - [ ] Confirm login user
 
@@ -123,45 +147,40 @@ Publish version as `vvvvvv`.
 
   * npm login to GitHub Packages before publishing if requires
 
-    1. Get login password from your GitHub settings<br>Go to → https://github.com/settings/tokens
-    2. Copy your `personal access token` created
-    3. Login
-
-        ```sh
-        npm login --registry=https://npm.pkg.github.com/
-        ```
-
-        ```sh
-        Username: your-github-account-in-lower-case-only
-        Password:
-        Email: your.mail.account@gmail.com
-        Logged in as [your-name] on https://npm.pkg.github.com/.
-        ```
+    1. Get access token from your GitHub settings<br>Go to → https://github.com/settings/tokens
+    2. Set your `personal access token`
+       ```sh
+       npm config set //npm.pkg.github.com/:_authToken [your access token]
+       ```
 
 - [ ] Last Confirm
 
   ```sh
-  git status
-  ```
-
-  ```sh
-  git diff xxxxxxxx
+  git status &&
+  git diff "$(git rev-parse origin/release/vvvvvv)"
   ```
 
 - [ ] Publish
 
-  When publish as OSS, use options of `--access public`
+  When publishing as OSS, add the `--access public` option to `npm publish`
 
   ```sh
-  npm publish
+  git stash push -u &&
+  git checkout "$(git rev-parse origin/release/vvvvvv)" &&
+  npm publish # --access public ## if the package is public
   ```
 
-## (5) Confirm Access Right of Published Package
+# Confirm Access Right of Published Package
 
 - When public module, check by installing package
 - When ORT private module, check it below in package page
 - Confirm check of `Inherit access from source repository (recommended)`
 
-  ```
-  https://github.com/orgs/openreachtech/packages/npm/__package__name__/settings
-  ```
+[ORT package settings in GitHub](https://github.com/orgs/openreachtech/packages/npm/__package__name__/settings)
+
+<br>
+<br>
+
+# Merge `release/vvvvvv` to `main`
+
+- [ ] Release > `main` as `vvvvvv` [major/minor/patch]
