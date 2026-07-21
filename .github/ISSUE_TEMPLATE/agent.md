@@ -1,6 +1,6 @@
 ---
-name: '🤖 AI'
-about: AI
+name: '🤖 Agent'
+about: Agent
 title: '🤖 '
 labels: ''
 assignees: ''
