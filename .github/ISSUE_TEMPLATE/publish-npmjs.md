@@ -174,7 +174,7 @@ openreachtech-todo-fulfill-here-0.0.0.tgz
 
   The command below publishes as OSS. Drop `--access public` when the package is private.
 
-  Replace `000000` with the 6-digit code from your authenticator app. The code is
+  Replace `xxxxxx` with the 6-digit code from your authenticator app. The code is
   valid for 30 seconds, so read it immediately before running the command.
 
   ```sh
