@@ -141,17 +141,20 @@ openreachtech-todo-fulfill-here-0.0.0.tgz
 
 - [ ] Confirm login user
 
-  ```
+  ```sh
   npm whoami
   ```
 
-  * npm login to npmjs.com before publishing if requires
+  * If not logged in, log in to `npmjs.com` before publishing
 
-    1. Get access token from your `npmjs.com` account<br>Go to → https://www.npmjs.com/settings/[username]/tokens
-    2. Set your `personal access token`
-       ```sh
-       npm config set //registry.npmjs.org/:_authToken [your access token]
-       ```
+    ```sh
+    npm login
+    ```
+
+    Authentication completes in your browser. npm writes the credential to `~/.npmrc` for you.
+
+    > ⚠️ **Never pass a token as a command-line argument.**
+    > `npm config set ... <token>` records the token in your shell history in plain text.
 
 - [ ] Last Confirm
 
