@@ -141,7 +141,7 @@ openreachtech-todo-fulfill-here-0.0.0.tgz
 
 - [ ] Confirm login user
 
-  ```
+  ```sh
   npm whoami
   ```
 
