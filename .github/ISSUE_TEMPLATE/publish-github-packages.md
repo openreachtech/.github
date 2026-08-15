@@ -145,13 +145,19 @@ openreachtech-todo-fulfill-here-0.0.0.tgz
   npm whoami --registry https://npm.pkg.github.com
   ```
 
-  * npm login to GitHub Packages before publishing if requires
+  * If not logged in, log in to GitHub Packages before publishing
 
-    1. Get access token from your GitHub settings<br>Go to → https://github.com/settings/tokens
-    2. Set your `personal access token`
+    1. Create a fine-grained personal access token<br>Go to → https://github.com/settings/personal-access-tokens
+       - Repository access: only the repositories you publish
+       - Repository permissions: **`Packages: Read and write`**
+       - Do **not** grant `Contents: Write` or use a classic token with `repo` scope
+    2. Log in. Paste the token at the `Password:` prompt — it is not echoed and not recorded in your shell history.
        ```sh
-       npm config set //npm.pkg.github.com/:_authToken [your access token]
+       npm login --scope=@openreachtech --auth-type=legacy --registry=https://npm.pkg.github.com
        ```
+
+       > ⚠️ **Never pass a token as a command-line argument.**
+       > `npm config set ... <token>` records the token in your shell history in plain text.
 
 - [ ] Last Confirm
 
