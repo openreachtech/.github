@@ -42,8 +42,8 @@ Do the final check before publishing. If there is any item below that you cannot
   📦️ Node: $(node -v)
   📦️ npm : $(npm -v)
   " &&
-  git checkout "$(git rev-parse origin/release/vvvvvv)" &&
-  npm pack --dry-run
+  git -c advice.detachedHead=false checkout "$(git rev-parse origin/release/vvvvvv)" &&
+  npm pack --dry-run 2>&1 | sed -n '/Tarball Details/,$p; /^npm error/p'
   ```
 
 - [ ] Confirm target commit hash
@@ -63,11 +63,6 @@ Example:
 📦️ npm : 11.14.1
 
 HEAD is now at 7b6d182 Merge pull request #105 from openreachtech/release/1.2.0
-npm notice
-npm notice 📦  @openreachtech/todo-fulfill-here@0.0.0
-npm notice Tarball Contents
-npm notice 1.2kB package.json
-npm notice 0B types/index.d.ts
 npm notice Tarball Details
 npm notice name: @openreachtech/todo-fulfill-here
 npm notice version: 0.0.0
@@ -99,8 +94,8 @@ echo "
 📦️ Node: $(node -v)
 📦️ npm : $(npm -v)
 " &&
-git checkout "$(git rev-parse origin/release/vvvvvv)" &&
-npm pack --dry-run
+git -c advice.detachedHead=false checkout "$(git rev-parse origin/release/vvvvvv)" &&
+npm pack --dry-run 2>&1 | sed -n '/Tarball Details/,$p; /^npm error/p'
 ```
 
 ## (2) Report confirming logs with `--dry-run` in the comments of this issue
@@ -114,11 +109,6 @@ Example:
 📦️ npm : 11.14.1
 
 HEAD is now at 7b6d182 Merge pull request #105 from openreachtech/release/1.2.0
-npm notice
-npm notice 📦  @openreachtech/todo-fulfill-here@0.0.0
-npm notice Tarball Contents
-npm notice 1.2kB package.json
-npm notice 0B types/index.d.ts
 npm notice Tarball Details
 npm notice name: @openreachtech/todo-fulfill-here
 npm notice version: 0.0.0
