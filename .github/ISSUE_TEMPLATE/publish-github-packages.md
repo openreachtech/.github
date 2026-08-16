@@ -179,4 +179,4 @@ openreachtech-todo-fulfill-here-0.0.0.tgz
 
 # Merge `release/vvvvvv` to `main`
 
-- [ ] Release > `main` as `vvvvvv` [major/minor/patch]
+- [ ] Release `vvvvvv` > Main
