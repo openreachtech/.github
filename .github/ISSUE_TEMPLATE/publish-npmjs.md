@@ -53,6 +53,8 @@ Do the final check before publishing. If there is any item below that you cannot
 
 - [ ] Get the `--dry-run` checksum
 
+  `npm ci` belongs in the chain because `prepack` may build files that ship. Without the dev dependencies, `npm pack` fails with `code 127`.
+
   ```sh
   git stash push -u &&
   git fetch origin --prune &&
@@ -61,6 +63,7 @@ Do the final check before publishing. If there is any item below that you cannot
   📦️ npm : $(npm -v)
   " &&
   git -c advice.detachedHead=false checkout "$(git rev-parse origin/release/vvvvvv)" &&
+  npm ci &&
   npm pack --dry-run 2>&1 | sed -n '/Tarball Details/,$p; /^npm error/p'
   ```
 
@@ -105,6 +108,8 @@ openreachtech-todo-fulfill-here-0.0.0.tgz
 
 ## (1) Run the Command
 
+Run the same block the publisher ran, so the two reports are comparable.
+
 ```sh
 git stash push -u &&
 git fetch origin --prune &&
@@ -113,6 +118,7 @@ echo "
 📦️ npm : $(npm -v)
 " &&
 git -c advice.detachedHead=false checkout "$(git rev-parse origin/release/vvvvvv)" &&
+npm ci &&
 npm pack --dry-run 2>&1 | sed -n '/Tarball Details/,$p; /^npm error/p'
 ```
 
