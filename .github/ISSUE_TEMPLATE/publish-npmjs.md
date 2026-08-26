@@ -16,7 +16,25 @@ Do the final check before publishing. If there is any item below that you cannot
 
 - [ ] ⚒️ Export new features correctly in version `vvvvvv`
 - [ ] ⚙️ Update version of dependency packages to latest
+- [ ] 🛡️ Resolve everything `npm audit` reports, or record what is left and why
+
+  `--omit=dev` is the half that decides urgency, since it narrows the report to what a consumer is actually exposed to.
+
+  ```sh
+  npm audit
+  npm audit --omit=dev
+  ```
+
+- [ ] 🧵 `npm run lint` and 🧪 `npm test` pass on the release branch tip
 - [ ] ⚙️ Update package version to `vvvvvv`
+- [ ] 🎯 Confirm `license` agrees with npmjs, and that the scope resolves there
+
+  An open-source license belongs with npmjs, and `UNLICENSED` with GitHub Packages. Either one paired with the other registry means the target was never settled.
+
+  ```sh
+  npm config get @openreachtech:registry &&
+  npm pkg get name version license publishConfig
+  ```
 
 <br>
 <br>
