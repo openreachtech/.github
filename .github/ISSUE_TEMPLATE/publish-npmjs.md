@@ -82,9 +82,9 @@ openreachtech-todo-fulfill-here-0.0.0.tgz
   git log --graph --oneline --decorate --all --exclude=refs/stash
   ```
 
-## (5) Request the verify `--dry-run` checksum
+## (5) Request the verify `--dry-run` checksum on Slack
 
-- [ ] Request the verify `--dry-run` checksum
+- [ ] Request the verify `--dry-run` checksum on Slack
 
 <br>
 <br>
