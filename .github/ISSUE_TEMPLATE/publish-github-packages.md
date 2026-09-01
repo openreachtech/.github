@@ -172,6 +172,7 @@ openreachtech-todo-fulfill-here-0.0.0.tgz
   ```sh
   git stash push -u &&
   git checkout "$(git rev-parse origin/release/vvvvvv)" &&
+  npm ci &&
   npm publish # --access public ## if the package is public
   ```
 
