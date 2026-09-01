@@ -127,6 +127,8 @@ openreachtech-todo-fulfill-here-0.0.0.tgz
 
 # Publish
 
+Lint and test are not run again here — the tip of `release/vvvvvv` has already passed them in CI.
+
 - [ ] Confirm the Publisher's and Confirmor's `shasum` / `integrity` match
 
 - [ ] Confirm login user
