@@ -171,12 +171,10 @@ openreachtech-todo-fulfill-here-0.0.0.tgz
   npm publish --access public
   ```
 
-# Confirm Access Right of Published Package
+# Confirm Published on npmjs.com
 
-- When public module, check by installing package
-- When ORT private module, check it below in package page
-
-[ORT published packages in https://npmjs.com](https://www.npmjs.com/settings/openreachtech/packages)
+- [ ] Confirm the published version is listed on the page below
+  - [ORT published packages in https://npmjs.com](https://www.npmjs.com/settings/openreachtech/packages)
 
 <br>
 <br>
