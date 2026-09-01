@@ -166,8 +166,9 @@ Lint and test are not run again here — the tip of `release/vvvvvv` has already
   Printing nothing from the commands below means you are clear to publish.
 
   ```sh
-  git status --short &&
-  git diff "$(git rev-parse origin/release/vvvvvv)"
+  git fetch origin --prune &&
+  git log --oneline "HEAD...origin/release/vvvvvv" &&
+  git status --short
   ```
 
 - [ ] Publish
