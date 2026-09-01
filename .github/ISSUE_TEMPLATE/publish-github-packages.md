@@ -49,12 +49,6 @@ Do the final check before publishing. If there is any item below that you cannot
   npm pack --dry-run 2>&1 | sed -n '/Tarball Details/,$p; /^npm error/p'
   ```
 
-- [ ] Confirm target commit hash
-
-  ```sh
-  git log --graph --oneline --decorate --all --exclude=refs/stash
-  ```
-
 ## (3) Report publishing logs with `--dry-run` in the comments of this issue
 
 - [ ] Paste the result via comment in this issue
@@ -79,7 +73,15 @@ npm notice
 openreachtech-todo-fulfill-here-0.0.0.tgz
 ```
 
-## (4) Request the verify `--dry-run` checksum
+## (4) Confirm target commit hash
+
+- [ ] Confirm target commit hash
+
+  ```sh
+  git log --graph --oneline --decorate --all --exclude=refs/stash
+  ```
+
+## (5) Request the verify `--dry-run` checksum
 
 - [ ] Request the verify `--dry-run` checksum
 
