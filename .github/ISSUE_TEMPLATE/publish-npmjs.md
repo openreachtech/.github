@@ -147,9 +147,6 @@ openreachtech-todo-fulfill-here-0.0.0.tgz
     > The `_authToken` line stays in `~/.npmrc`, but the registry stops accepting it.
     > `npm whoami` is the only reliable check — run `npm login` right before publishing.
 
-    > ⚠️ **Logging in does not clear 2FA for publish.**
-    > `npm publish` requires its own one-time password. See the `--otp` option below.
-
     > ⚠️ **Never pass a token as a command-line argument.**
     > `npm config set ... <token>` records the token in your shell history in plain text.
 
@@ -164,13 +161,14 @@ openreachtech-todo-fulfill-here-0.0.0.tgz
 
   The command below publishes as OSS. Drop `--access public` when the package is private.
 
-  Replace `xxxxxx` with the 6-digit code from your authenticator app. The code is
-  valid for 30 seconds, so read it immediately before running the command.
+  > ⚠️ **Approving in your browser is required, even when `npm whoami` already shows you.**
+  > `npm publish` opens your browser and waits for you to approve the publish there.
+  > Run it where you can reach a browser, and do not walk away from the terminal.
 
   ```sh
   git stash push -u &&
   git checkout "$(git rev-parse origin/release/vvvvvv)" &&
-  npm publish --access public --otp=xxxxxx
+  npm publish --access public
   ```
 
 # Confirm Access Right of Published Package
