@@ -16,6 +16,7 @@ Do the final check before publishing. If there is any item below that you cannot
 
 - [ ] ⚒️ Export new features correctly in version `vvvvvv`
 - [ ] ⚙️ Bump version of dependency packages to latest
+- [ ] 📄 Resolve license inconsistencies
 - [ ] ⚙️ Bump package version to `vvvvvv`
 
 <br>
