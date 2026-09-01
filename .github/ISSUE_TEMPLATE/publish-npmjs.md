@@ -175,7 +175,6 @@ openreachtech-todo-fulfill-here-0.0.0.tgz
 
 - When public module, check by installing package
 - When ORT private module, check it below in package page
-- Confirm check of `Inherit access from source repository (recommended)`
 
 [ORT published packages in https://npmjs.com](https://www.npmjs.com/settings/openreachtech/packages)
 
