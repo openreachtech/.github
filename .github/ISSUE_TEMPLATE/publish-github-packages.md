@@ -109,7 +109,7 @@ npm pack --dry-run 2>&1 | sed -n '/Tarball Details/,$p; /^npm error/p'
 
 ## (2) Report confirming logs with `--dry-run` in the comments of this issue
 
-Paste the Results via comment of this issue
+Paste the result via comment in this issue
 
 Example:
 
