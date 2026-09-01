@@ -93,6 +93,8 @@ openreachtech-todo-fulfill-here-0.0.0.tgz
 
 ## (1) Run the Command
 
+Run the same block the Publisher ran. If the Node or npm version differs from the Publisher's report, align it before comparing — a mismatch caused by tooling says nothing about the content.
+
 ```sh
 git stash push -u &&
 git fetch origin --prune &&
