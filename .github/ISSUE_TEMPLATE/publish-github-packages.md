@@ -160,8 +160,10 @@ openreachtech-todo-fulfill-here-0.0.0.tgz
 
 - [ ] Last Confirm
 
+  Printing nothing from the commands below means you are clear to publish.
+
   ```sh
-  git status &&
+  git status --short &&
   git diff "$(git rev-parse origin/release/vvvvvv)"
   ```
 
