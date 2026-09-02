@@ -15,8 +15,9 @@ Publish version `vvvvvv`.
 Do the final check before publishing. If there is any item below that you cannot check off, make it a sub-task and merge it into the `release/vvvvvv` branch.
 
 - [ ] ⚒️ Export new features correctly in version `vvvvvv`
-- [ ] ⚙️ Update version of dependency packages to latest
-- [ ] ⚙️ Update package version to `vvvvvv`
+- [ ] ⚙️ Bump version of dependency packages to latest
+- [ ] 📄 Resolve license inconsistencies
+- [ ] ⚙️ Bump package version to `vvvvvv`
 
 <br>
 <br>
@@ -35,6 +36,8 @@ Do the final check before publishing. If there is any item below that you cannot
 
 - [ ] Get the `--dry-run` checksum
 
+  `npm ci` belongs in the chain because `prepack` may build files that ship. Without the dev dependencies, `npm pack` fails with `code 127`.
+
   ```sh
   git stash push -u &&
   git fetch origin --prune &&
@@ -43,13 +46,8 @@ Do the final check before publishing. If there is any item below that you cannot
   📦️ npm : $(npm -v)
   " &&
   git -c advice.detachedHead=false checkout "$(git rev-parse origin/release/vvvvvv)" &&
+  npm ci &&
   npm pack --dry-run 2>&1 | sed -n '/Tarball Details/,$p; /^npm error/p'
-  ```
-
-- [ ] Confirm target commit hash
-
-  ```sh
-  git log --graph --oneline --decorate --all --exclude=refs/stash
   ```
 
 ## (3) Report publishing logs with `--dry-run` in the comments of this issue
@@ -76,9 +74,17 @@ npm notice
 openreachtech-todo-fulfill-here-0.0.0.tgz
 ```
 
-## (4) Request the verify `--dry-run` checksum
+## (4) Confirm target commit hash
 
-- [ ] Request the verify `--dry-run` checksum
+- [ ] Confirm target commit hash
+
+  ```sh
+  git log --graph --oneline --decorate --all --exclude=refs/stash
+  ```
+
+## (5) Request the verify `--dry-run` checksum on Slack
+
+- [ ] Request the verify `--dry-run` checksum on Slack
 
 <br>
 <br>
@@ -86,6 +92,8 @@ openreachtech-todo-fulfill-here-0.0.0.tgz
 # Verify by Confirmor
 
 ## (1) Run the Command
+
+Run the same block the Publisher ran. If the Node or npm version differs from the Publisher's report, align it before comparing — a mismatch caused by tooling says nothing about the content.
 
 ```sh
 git stash push -u &&
@@ -95,12 +103,13 @@ echo "
 📦️ npm : $(npm -v)
 " &&
 git -c advice.detachedHead=false checkout "$(git rev-parse origin/release/vvvvvv)" &&
+npm ci &&
 npm pack --dry-run 2>&1 | sed -n '/Tarball Details/,$p; /^npm error/p'
 ```
 
 ## (2) Report confirming logs with `--dry-run` in the comments of this issue
 
-Paste the Results via comment of this issue
+Paste the result via comment in this issue
 
 Example:
 
@@ -151,9 +160,12 @@ openreachtech-todo-fulfill-here-0.0.0.tgz
 
 - [ ] Last Confirm
 
+  Printing nothing from the commands below means you are clear to publish.
+
   ```sh
-  git status &&
-  git diff "$(git rev-parse origin/release/vvvvvv)"
+  git fetch origin --prune &&
+  git log --oneline "HEAD...origin/release/vvvvvv" &&
+  git status --short
   ```
 
 - [ ] Publish
@@ -163,6 +175,7 @@ openreachtech-todo-fulfill-here-0.0.0.tgz
   ```sh
   git stash push -u &&
   git checkout "$(git rev-parse origin/release/vvvvvv)" &&
+  npm ci &&
   npm publish # --access public ## if the package is public
   ```
 

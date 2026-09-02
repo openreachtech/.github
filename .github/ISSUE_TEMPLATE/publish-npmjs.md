@@ -15,8 +15,9 @@ Publish version `vvvvvv`.
 Do the final check before publishing. If there is any item below that you cannot check off, make it a sub-task and merge it into the `release/vvvvvv` branch.
 
 - [ ] ⚒️ Export new features correctly in version `vvvvvv`
-- [ ] ⚙️ Update version of dependency packages to latest
-- [ ] ⚙️ Update package version to `vvvvvv`
+- [ ] ⚙️ Bump version of dependency packages to latest
+- [ ] 📄 Resolve license inconsistencies
+- [ ] ⚙️ Bump package version to `vvvvvv`
 
 <br>
 <br>
@@ -35,6 +36,8 @@ Do the final check before publishing. If there is any item below that you cannot
 
 - [ ] Get the `--dry-run` checksum
 
+  `npm ci` belongs in the chain because `prepack` may build files that ship. Without the dev dependencies, `npm pack` fails with `code 127`.
+
   ```sh
   git stash push -u &&
   git fetch origin --prune &&
@@ -43,13 +46,8 @@ Do the final check before publishing. If there is any item below that you cannot
   📦️ npm : $(npm -v)
   " &&
   git -c advice.detachedHead=false checkout "$(git rev-parse origin/release/vvvvvv)" &&
+  npm ci &&
   npm pack --dry-run 2>&1 | sed -n '/Tarball Details/,$p; /^npm error/p'
-  ```
-
-- [ ] Confirm target commit hash
-
-  ```sh
-  git log --graph --oneline --decorate --all --exclude=refs/stash
   ```
 
 ## (3) Report publishing logs with `--dry-run` in the comments of this issue
@@ -76,9 +74,17 @@ npm notice
 openreachtech-todo-fulfill-here-0.0.0.tgz
 ```
 
-## (4) Request the verify `--dry-run` checksum
+## (4) Confirm target commit hash
 
-- [ ] Request the verify `--dry-run` checksum
+- [ ] Confirm target commit hash
+
+  ```sh
+  git log --graph --oneline --decorate --all --exclude=refs/stash
+  ```
+
+## (5) Request the verify `--dry-run` checksum on Slack
+
+- [ ] Request the verify `--dry-run` checksum on Slack
 
 <br>
 <br>
@@ -86,6 +92,8 @@ openreachtech-todo-fulfill-here-0.0.0.tgz
 # Verify by Confirmor
 
 ## (1) Run the Command
+
+Run the same block the Publisher ran. If the Node or npm version differs from the Publisher's report, align it before comparing — a mismatch caused by tooling says nothing about the content.
 
 ```sh
 git stash push -u &&
@@ -95,12 +103,13 @@ echo "
 📦️ npm : $(npm -v)
 " &&
 git -c advice.detachedHead=false checkout "$(git rev-parse origin/release/vvvvvv)" &&
+npm ci &&
 npm pack --dry-run 2>&1 | sed -n '/Tarball Details/,$p; /^npm error/p'
 ```
 
 ## (2) Report confirming logs with `--dry-run` in the comments of this issue
 
-Paste the Results via comment of this issue
+Paste the result via comment in this issue
 
 Example:
 
@@ -127,6 +136,8 @@ openreachtech-todo-fulfill-here-0.0.0.tgz
 
 # Publish
 
+Lint and test are not run again here — the tip of `release/vvvvvv` has already passed them in CI.
+
 - [ ] Confirm the Publisher's and Confirmor's `shasum` / `integrity` match
 
 - [ ] Confirm login user
@@ -147,39 +158,38 @@ openreachtech-todo-fulfill-here-0.0.0.tgz
     > The `_authToken` line stays in `~/.npmrc`, but the registry stops accepting it.
     > `npm whoami` is the only reliable check — run `npm login` right before publishing.
 
-    > ⚠️ **Logging in does not clear 2FA for publish.**
-    > `npm publish` requires its own one-time password. See the `--otp` option below.
-
     > ⚠️ **Never pass a token as a command-line argument.**
     > `npm config set ... <token>` records the token in your shell history in plain text.
 
 - [ ] Last Confirm
 
+  Printing nothing from the commands below means you are clear to publish.
+
   ```sh
-  git status &&
-  git diff "$(git rev-parse origin/release/vvvvvv)"
+  git fetch origin --prune &&
+  git log --oneline "HEAD...origin/release/vvvvvv" &&
+  git status --short
   ```
 
 - [ ] Publish
 
   The command below publishes as OSS. Drop `--access public` when the package is private.
 
-  Replace `xxxxxx` with the 6-digit code from your authenticator app. The code is
-  valid for 30 seconds, so read it immediately before running the command.
+  > ⚠️ **Approving in your browser is required, even when `npm whoami` already shows you.**
+  > `npm publish` opens your browser and waits for you to approve the publish there.
+  > Run it where you can reach a browser, and do not walk away from the terminal.
 
   ```sh
   git stash push -u &&
   git checkout "$(git rev-parse origin/release/vvvvvv)" &&
-  npm publish --access public --otp=xxxxxx
+  npm ci &&
+  npm publish --access public
   ```
 
-# Confirm Access Right of Published Package
+# Confirm Published on npmjs.com
 
-- When public module, check by installing package
-- When ORT private module, check it below in package page
-- Confirm check of `Inherit access from source repository (recommended)`
-
-[ORT published packages in https://npmjs.com](https://www.npmjs.com/settings/openreachtech/packages)
+- [ ] Confirm the published version is listed on the page below
+  - [ORT published packages in https://npmjs.com](https://www.npmjs.com/settings/openreachtech/packages)
 
 <br>
 <br>
