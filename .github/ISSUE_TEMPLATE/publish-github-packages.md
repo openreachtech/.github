@@ -36,7 +36,7 @@ Do the final check before publishing. If there is any item below that you cannot
 
 - [ ] Get the `--dry-run` checksum
 
-  `npm ci` belongs in the chain because `prepack` may build files that ship. Without the dev dependencies, `npm pack` fails with `code 127`.
+  `npm ci` belongs in the chain because `prepack` may build files that ship. Without the dev dependencies, `npm pack` fails with `code 127`. Its own output is muted so the block prints only the versions and the tarball details. A failed install still reports on stderr.
 
   ```sh
   git stash push -u &&
@@ -46,7 +46,7 @@ Do the final check before publishing. If there is any item below that you cannot
   📦️ npm : $(npm -v)
   " &&
   git -c advice.detachedHead=false checkout "$(git rev-parse origin/release/vvvvvv)" &&
-  npm ci &&
+  npm ci --loglevel=error > /dev/null &&
   npm pack --dry-run 2>&1 | sed -n '/Tarball Details/,$p; /^npm error/p'
   ```
 
@@ -103,7 +103,7 @@ echo "
 📦️ npm : $(npm -v)
 " &&
 git -c advice.detachedHead=false checkout "$(git rev-parse origin/release/vvvvvv)" &&
-npm ci &&
+npm ci --loglevel=error > /dev/null &&
 npm pack --dry-run 2>&1 | sed -n '/Tarball Details/,$p; /^npm error/p'
 ```
 
