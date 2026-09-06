@@ -7,10 +7,22 @@ assignees: ''
 
 ---
 
-# Details
+# As-is
 
-* 
+- 
 
-# Tasks
+# To-be
+
+- 
+
+# Note
+
+- 
+
+# Checklist
+
+- [ ] 
+
+# Sub-issues
 
 - [ ] 
