@@ -15,9 +15,9 @@ Publish version `vvvvvv`.
 Do the final check before publishing. If there is any item below that you cannot check off, make it a sub-task and merge it into the `release/vvvvvv` branch.
 
 - [ ] ⚒️ Export new features correctly in version `vvvvvv`
-- [ ] ⚙️ Bump version of dependency packages to latest
+- [ ] ⚙️ Update version of dependency packages to latest
 - [ ] 📄 Resolve license inconsistencies
-- [ ] ⚙️ Bump package version to `vvvvvv`
+- [ ] ⚙️ Update package version to `vvvvvv`
 
 <br>
 <br>

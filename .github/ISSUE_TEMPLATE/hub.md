@@ -1,19 +1,11 @@
 ---
-name: '🐛 Bug'
-about: Bug Issue
-title: '🐛 '
+name: '📂 Hub'
+about: Hub Issue
+title: '📂 '
 labels: ''
 assignees: ''
 
 ---
-
-# As-is
-
-- 
-
-# To-be
-
-- 
 
 # Note
 

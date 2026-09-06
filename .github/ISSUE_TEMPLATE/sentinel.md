@@ -1,7 +1,7 @@
 ---
-name: '🚧 Refactoring'
-about: Refactoring Issue
-title: '🚧 '
+name: '🛡️ Sentinel'
+about: Sentinel Issue
+title: '🛡️ '
 labels: ''
 assignees: ''
 

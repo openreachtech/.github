@@ -7,10 +7,22 @@ assignees: ''
 
 ---
 
-# Details
+# As-is
 
-* For updating `package.json`
+- 
 
-# Tasks
+# To-be
+
+- 
+
+# Note
+
+- For updating `package.json`
+
+# Checklist
+
+- [ ] 
+
+# Sub-issues
 
 - [ ] 
