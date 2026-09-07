@@ -9,15 +9,15 @@ assignees: ''
 
 # As-is
 
-- 
+* 
 
 # To-be
 
-- 
+* 
 
 # Note
 
-- 
+* 
 
 # Checklist
 
