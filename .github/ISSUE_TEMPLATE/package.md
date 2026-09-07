@@ -9,15 +9,15 @@ assignees: ''
 
 # As-is
 
-- 
+* 
 
 # To-be
 
-- 
+* 
 
 # Note
 
-- For updating `package.json`
+* For updating `package.json`
 
 # Checklist
 
