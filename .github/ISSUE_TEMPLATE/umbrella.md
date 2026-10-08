@@ -1,7 +1,7 @@
 ---
-name: '📂 Hub'
-about: Hub Issue
-title: '📂 '
+name: '⛱️ Umbrella'
+about: Umbrella Issue
+title: '⛱️ '
 labels: ''
 assignees: ''
 
